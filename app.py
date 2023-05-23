@@ -3,7 +3,8 @@ import joblib
 import numpy
 
 MODEL_PATH = 'mlmodels/model.pkl'
-SCALER_PATH = 'mlmodels/scaler.pkl'
+SCALER_X_PATH = 'mlmodels/scaler_x.pkl'
+SCALER_Y_PATH = 'mlmodels/scaler_y.pkl'
 
 app = Flask(__name__)
 model = joblib.load(MODEL_PATH)
