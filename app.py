@@ -1,6 +1,6 @@
 from flask import Flask, request
 import joblib
-import numpy
+import catboost
 
 MODEL_PATH = 'mlmodels/model.pkl'
 SCALER_X_PATH = 'mlmodels/scaler_x.pkl'
@@ -27,3 +27,5 @@ def predict():  # put application's code here
 
 if __name__ == '__main__':
     app.run(debug = True, port = 5444, host = '0.0.0.0')
+
+
