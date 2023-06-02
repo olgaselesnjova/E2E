@@ -72,16 +72,5 @@ xgboost = GridSearchCV(estimator=xgboost_pipeline, param_grid=param_grid, cv=3, 
 	
 <h3> ⚙️ How to open the port in a remote VM </h3>
 	
-To open a port in a remote VM, we need to access the VM's network settings and add a new port rule. Here are the steps:
-1. Connect to the remote VM using a remote desktop connection or any other remote access tool.
-2. Open the Control Panel and click on the "Windows Firewall" option.
-3. Click on the "Advanced settings" option in the left pane.
-4. In the new window, select the "Inbound Rules" option and click on the "New Rule" option from the right pane.
-5. Select the "Port" option and click "Next".
-6. Enter the port number you want to open and select the protocol (TCP or UDP) for the port. Click "Next".
-7. Select the "Allow the connection" option and click "Next".
-8. Select the appropriate network location and click "Next".
-9. Give your new rule a name and click "Finish".
-Once you have completed these steps, the port you specified should now be open and accessible remotely.
 
 <h3> ⚓ How to run app using docker and which port it uses </h3>
