@@ -23,6 +23,7 @@ Real estate listings for apartments in St. Petersburg and Leningrad Oblast from 
 ![alt text](https://github.com/olgaselesnjova/E2E/blob/main/images/3.JPG)
 
 <h3> ✏️ Data prepsocessing </h3>
+
 For data preprocessing we used **SimpleImputer** with a default strategy "mean" in scikit-learn to replace missing values in a numerical dataset by the mean value of the corresponding column.
 **OneHotEncoder** is used to convert categorical variables into a format that can be used by ML algorithms.
 
@@ -33,6 +34,7 @@ mapper = DataFrameMapper([([feature], SimpleImputer()) for feature in numeric_fe
 ```		
 
 <h3> 📍 ML </h3>
+
 I automated the data processing and model building process by using **pipeline** to increase the efficiency, accuracy and reproducibility of models.
 
 ```
@@ -59,8 +61,27 @@ xgboost = GridSearchCV(estimator=xgboost_pipeline, param_grid=param_grid, cv=3, 
 <h3> 💻 How to install instructions and run the web-app with virtual environment </h3>
 	
 <h3> 📎 Information about Dockerfile </h3>
-describe it's content
+
+- The **Dockerfile** starts with the Ubuntu 20.04 base image. The MAINTAINER command sets the author information for the image. 
+- Then, the RUN command is used to update the package list on the Ubuntu image. 
+- The COPY command is used to copy the content of the current directory to the /opt/gsom_predictor directory inside the Docker container. 
+- The WORKDIR command sets the working directory inside the container as /opt/gsom_predictor. 
+- The next RUN command installs the pip3 package manager for Python 3. 
+- The final RUN command installs the dependencies listed in requirements.txt file using pip3. 
+- The CMD command runs the app.py file using Python 3 inside the container.
 	
 <h3> ⚙️ How to open the port in a remote VM </h3>
 	
+To open a port in a remote VM, we need to access the VM's network settings and add a new port rule. Here are the steps:
+1. Connect to the remote VM using a remote desktop connection or any other remote access tool.
+2. Open the Control Panel and click on the "Windows Firewall" option.
+3. Click on the "Advanced settings" option in the left pane.
+4. In the new window, select the "Inbound Rules" option and click on the "New Rule" option from the right pane.
+5. Select the "Port" option and click "Next".
+6. Enter the port number you want to open and select the protocol (TCP or UDP) for the port. Click "Next".
+7. Select the "Allow the connection" option and click "Next".
+8. Select the appropriate network location and click "Next".
+9. Give your new rule a name and click "Finish".
+Once you have completed these steps, the port you specified should now be open and accessible remotely.
+
 <h3> ⚓ How to run app using docker and which port it uses </h3>
