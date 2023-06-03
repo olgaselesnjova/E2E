@@ -88,7 +88,7 @@ After that we can use applications such as **Postman** to check how our requests
 
 Firstly we need to build containers and then run them: 
 ```
-docker build -t <your login>/<directory name>:<version> .      (example: "docker build -t olgaselesnjova/e2e23:v.0.1 .")
+docker build -t <your login>/<directory name>:<version> .      # example: "docker build -t olgaselesnjova/e2e23:v.0.1 ."
 docker run --network host -it <your login>/<directory name>:<version> /bin/bash
 docker run --network host -d <your login>/<directory name>:<version>   
 docker ps     # to show all running containers and info about them
