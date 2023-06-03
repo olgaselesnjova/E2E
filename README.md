@@ -91,10 +91,6 @@ Firstly we need to build containers and then run them:
 docker build -t <your login>/<directory name>:<version> .      (example: "docker build -t olgaselesnjova/e2e23:v.0.1 .")
 docker run --network host -it <your login>/<directory name>:<version> /bin/bash
 docker run --network host -d <your login>/<directory name>:<version>   
-docker ps
-docker stop <container name>    -> from the list after docker ps
-```
-Use this command to show all the active running containers and info about them:
-```
-docker ps
+docker ps     # to show all running containers and info about them
+docker stop <container name>    # from the list after docker ps
 ```
