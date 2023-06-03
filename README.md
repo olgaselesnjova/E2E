@@ -62,7 +62,7 @@ xgboost = GridSearchCV(estimator=xgboost_pipeline, param_grid=param_grid, cv=3, 
 	
 <h3> 📎 Information about Dockerfile </h3>
 
-- The **Dockerfile** starts with the Ubuntu 20.04 base image. The MAINTAINER command sets the author information for the image. 
+The **Dockerfile** starts with the Ubuntu 20.04 base image. The MAINTAINER command sets the author information for the image. 
 - Then, the RUN command is used to update the package list on the Ubuntu image. 
 - The COPY command is used to copy the content of the current directory to the /opt/gsom_predictor directory inside the Docker container. 
 - The WORKDIR command sets the working directory inside the container as /opt/gsom_predictor. 
@@ -72,5 +72,29 @@ xgboost = GridSearchCV(estimator=xgboost_pipeline, param_grid=param_grid, cv=3, 
 	
 <h3> ⚙️ How to open the port in a remote VM </h3>
 	
+We specify the port in a flask app in the script **app.py** by setting 
+```
+if __name__ == '__main__':
+    app.run(debug = True, port = 5444, host = '0.0.0.0')
+```
+To open the remote VM port of our web application we need to use these lines:
+```
+sudo apt install ufw
+sudo ufw allow 5444 
+```
+After that we can use applications such as **Postman** to check how our requests for API work.  
 
 <h3> ⚓ How to run app using docker and which port it uses </h3>
+
+Firstly we need to build containers and then run them: 
+```
+docker build -t <your login>/<directory name>:<version> .      (example: "docker build -t olgaselesnjova/e2e23:v.0.1 .")
+docker run --network host -it <your login>/<directory name>:<version> /bin/bash
+docker run --network host -d <your login>/<directory name>:<version>   
+docker ps
+docker stop <container name>    -> from the list after docker ps
+```
+Use this command to show all the active running containers and info about them:
+```
+docker ps
+```
